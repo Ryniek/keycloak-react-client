@@ -29,7 +29,8 @@ class App extends Component {
     localStorage.removeItem('token')
     console.log('Wylogowano - usunięto token')
     const keycloak = Keycloak('/keycloak.json');
-    axios.get('https://zagle-app-kejlok.herokuapp.com/auth/realms/zagle/protocol/openid-connect/logout?id_token_hint=' + keycloak.idToken);
+    axios.get('https://zagle-app-kejlok.herokuapp.com/auth/realms/zagle/protocol/openid-connect/logout?id_token_hint=' + localStorage.getItem('idToken'));
+    localStorage.removeItem('idToken');
     console.log('Wylogowano - usunięto sesję')
   }
 

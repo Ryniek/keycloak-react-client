@@ -15,6 +15,7 @@ class Secured extends Component {
     keycloak.init({onLoad: 'login-required', promiseType: 'native'}).then(authenticated => {
       this.setState({ keycloak: keycloak, authenticated: authenticated})
       localStorage.setItem('token', keycloak.token)
+      localStorage.setItem('idToken', keycloak.idToken);
       console.log(localStorage.getItem('token'));
       console.log(keycloak);
     })
